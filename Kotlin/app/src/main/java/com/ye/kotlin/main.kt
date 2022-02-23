@@ -112,6 +112,51 @@ fun main() {
         else -> println("No se encontro una opcion")
     }
 
+    println("-------LISTAS")
+
+    var listaFrutas = mutableListOf<String>("Manzana", "Pera", "Uva", "Naranja")
+    listaFrutas.add("Fresa")
+    listaFrutas.removeAt(2)
+    listaFrutas.add(2, "Guayaba")
+    println(listaFrutas)
+
+    var listaColores = listOf("Azul", "Verde", "Rojo")
+    println(listaColores.indexOf("Verde"))
+    println(listaColores.get(2))
+    println(listaColores[2])
+    println(listaColores.size)
+    println(listaColores.first())
+    println(listaColores.last())
+
+    println("---For loops")
+
+    for (fruta in listaFrutas) {
+        println(fruta)
+    }
+
+    for((index, fruta) in listaFrutas.withIndex()) {
+        println("La fruta es $fruta y la posición es ${index + 1}")
+    }
+
+    for(i in listaFrutas.indices) {
+        println(listaFrutas[i])
+    }
+
+    for(i in 1 until 5){
+        if(i == 3) continue
+            println(i)
+    }
+
+    repeat(3) {
+        println("Comentario de ejemplo")
+    }
+
+    println("---Funciones de expresión")
+
+    println(5.esPar())
+    var nombre = "JoSé"
+    println(nombre.toLowerCase())
+    println(nombre.quitarInicial())
 
 
 }
@@ -155,3 +200,7 @@ fun suma2(numero1: Int, numero2: Int) = numero1 + numero2
 fun imprimirSuma(a: Int, b: Int) : Unit {
     println("La suma de a: $a y b: $b es ${a+b}")
 }
+
+fun Int.esPar(): Boolean = this % 2 == 0
+
+fun String.quitarInicial(): String = this.substring(1)
