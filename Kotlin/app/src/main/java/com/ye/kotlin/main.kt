@@ -142,21 +142,47 @@ fun main() {
         println(listaFrutas[i])
     }
 
-    for(i in 1 until 5){
-        if(i == 3) continue
-            println(i)
+    for(it in 1 until 5){
+        if(it == 3) continue
+            println(it)
     }
 
     repeat(3) {
         println("Comentario de ejemplo")
     }
 
-    println("---Funciones de expresión")
+    println("---Funciones de extensión")
 
     println(5.esPar())
     var nombre = "JoSé"
     println(nombre.toLowerCase())
     println(nombre.quitarInicial())
+
+
+    println("------forEach")
+
+    listaColores.forEach {
+        println(it)
+    }
+    println("---")
+    listaColores.forEach {
+        color -> println(color)
+    }
+
+    listaColores.forEachIndexed { index, c ->  println("Indice: ${index+1} - Color: $c") }
+
+    val listaNumeros = listOf(1,2,3,4,5,4,3)
+
+    println(listaNumeros.filter {
+        num -> num > 3
+    })
+
+    println(listaNumeros.map {
+            it * 2
+    })
+
+    val numeros = setOf(1,3,2,2,1,3,4,5,1,2)
+    println(numeros)
 
 
 }
