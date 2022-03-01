@@ -13,6 +13,9 @@ fun main() {
 
     /******EXPRESIONES LAMBDA*****/
 
+
+
+
     val texto: (String) -> String = {palabra -> palabra}
 
     println(texto("notengoidea"))
@@ -20,8 +23,22 @@ fun main() {
     val cuadrado: (Int) -> Int = {numero -> numero * numero}
     println(cuadrado(2))
 
-    val suma: (Int, Int) -> String = { numero1, numero2 -> "La suma es ${numero1 + numero2}"}
-    println(suma(2, 4))
+    /* val suma: (Int, Int) -> String = { numero1, numero2 -> "La suma es ${numero1 + numero2}"}
+    println(suma(2, 4))*/
+
+    voyAPasarUnLambda(){
+        pa -> println("Mi parametro pa es: $pa")
+    }
 
 }
+
+fun voyAPasarUnLambda(lambda: (Int) -> Unit){
+    // codigo
+    // mas codigo ...
+    lambda(4)
+}
+
+
+
+
 
