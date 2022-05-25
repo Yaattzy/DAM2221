@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="8dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/textItemName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        tools:text="Nombre"
+        android:textStyle="bold"
+        android:textColor="@color/teal_200"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/txtItemAuthor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Autor"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/textItemName"
+        app:layout_constraintStart_toStartOf="@id/textItemName"/>
+
+    <TextView
+        android:id="@+id/txtItemGenre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Genre"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/txtItemAuthor"
+        app:layout_constraintStart_toStartOf="@id/txtItemAuthor"/>
+
+    <TextView
+        android:id="@+id/txtItemYear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="1009"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@id/textItemName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/txtItemGenre"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
