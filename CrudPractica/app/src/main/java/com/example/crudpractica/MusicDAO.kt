@@ -1,5 +1,6 @@
 package com.example.crudpractica
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 
 @Dao
@@ -21,5 +22,5 @@ interface MusicDAO {
     suspend fun get(key: Long): Music? // en caso de no encontrar nada retorna nulo
 
     @Query("SELECT * FROM music_entity")
-    fun getAllMusic(): List<Music>
+    fun getAllMusic(): LiveData<List<Music>>
 }
