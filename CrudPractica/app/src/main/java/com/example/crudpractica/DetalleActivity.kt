@@ -6,23 +6,36 @@ import android.text.TextUtils
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.example.crudpractica.databinding.ActivityAgregarBinding
-import com.example.crudpractica.databinding.ActivityMainBinding
+import com.example.crudpractica.databinding.ActivityDetalleBinding
 
-class AgregarActivity : AppCompatActivity() {
+class DetalleActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityAgregarBinding
+    lateinit var binding: ActivityDetalleBinding
     lateinit var mMusicViewModel: MusicViewModel
+
+    var id: Long = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_agregar)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_detalle)
 
         mMusicViewModel = ViewModelProvider(this).get(MusicViewModel::class.java)
         binding.mViewModel = mMusicViewModel
         binding.lifecycleOwner = this
 
-        binding.btnAgregarItem.setOnClickListener {
+        intent.extras?.let {
+            id = it.getLong("mId")
+        }
+
+        mMusicViewModel.editOrDelete(id)
+
+        binding.btnEliminarUno.setOnClickListener {
+            mMusicViewModel.deleteOne()
+            finish()
+        }
+
+        binding.btnActualizarItem.setOnClickListener {
             // Guardar nuestro objeto y validaciones
 
             var error = false
@@ -34,10 +47,9 @@ class AgregarActivity : AppCompatActivity() {
             }
 
             if(!error ){
-                mMusicViewModel.save()
+                mMusicViewModel.edit()
                 finish()
             }
         }
-
     }
 }

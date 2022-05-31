@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CrudPractica">
         <activity
+            android:name=".DetalleActivity"
+            android:exported="false" />
+        <activity
             android:name=".AgregarActivity"
             android:exported="false" />
         <activity
